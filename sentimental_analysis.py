@@ -22,7 +22,7 @@ class SentimentAnalysis:
         api = tweepy.API(auth)
 
         # input for term to be searched and how many tweets to search
-        searchTerm = input("Enter Keyword/Tag to search about: ")
+        searchTerm = input("\nEnter Keyword/Tag to search about: ")
         NoOfTerms = int(input("Enter how many tweets to search: "))
 
         # searching for tweets
@@ -73,6 +73,7 @@ class SentimentAnalysis:
         polarity = polarity / NoOfTerms
 
         # printing out data
+        print("\n\nOutput:     ")
         print("How people are reacting on " + searchTerm + " by analyzing " + str(NoOfTerms) + " tweets.")
         print()
         print("General Report: ")
