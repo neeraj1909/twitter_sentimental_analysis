@@ -11,11 +11,14 @@ class SentimentAnalysis:
 
     def DownloadData(self):
         # authenticating
-        consumer_key = 'your consumer key'
-        consumer_secret = 'your consumerSecret key'
-        access_token_key = 'your accessToken key'
-        access_token_secret = 'your accessTokenSecret key'
-
+        #consumer_key = 'your consumer key'
+        #consumer_secret = 'your consumerSecret key'
+        #access_token_key = 'your accessToken key'
+        #access_token_secret = 'your accessTokenSecret key'
+        consumer_key = "57zMDJaEtD4gRluvVBHmjnPHE"
+        consumer_secret = "StXrbylpPHwHA8YqLXfo9DPl14srgxF2xCvR4bakzwpVWqCkTX"
+        access_token_key = "4864531754-JQ9NUln3BXUTU024a53uT7aKjrZA6cACmfU9KRz"
+        access_token_secret = "ODvIiSNsvqeq5HBJYFZL6D2rWuORjUh2C93JJgwN14Z1h"
 
         auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token_key, access_token_secret)
@@ -46,7 +49,7 @@ class SentimentAnalysis:
         for tweet in self.tweets:
             #Append to temp so that we can store in csv later. I use encode UTF-8
             self.tweetText.append(self.cleanTweet(tweet.text).encode('utf-8'))
-            # print (tweet.text.translate(non_bmp_map))    #print tweet's text
+            print (tweet.text)   #print tweet's text
             analysis = TextBlob(tweet.text)
             # print(analysis.sentiment)  # print tweet's polarity
             polarity += analysis.sentiment.polarity  # adding up polarities to find the average later
@@ -109,7 +112,7 @@ class SentimentAnalysis:
         labels = ['Positive [' + str(positive) + '%]', 'Neutral [' + str(neutral) + '%]',
                   'Negative [' + str(negative) + '%]']
         sizes = [positive, neutral, negative]
-        colors = ['green', 'gray', 'red']
+        colors = ['lightgreen', 'lightblue', 'salmon']
         patches, texts = plt.pie(sizes, colors=colors, startangle=90)
         plt.legend(patches, labels, loc="best")
         plt.title('How people are reacting on ' + searchTerm + ' by analyzing ' + str(noOfSearchTerms) + ' Tweets.')
