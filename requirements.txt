@@ -5,3 +5,6 @@ tweepy
 beautifulsoup4
 textblob
 vaderSentiment
+twitter
+matplotlib
+pandas
